@@ -9,6 +9,15 @@ import {GetData} from './API/Api'
 
 function App() {
   const [data,setData] = useState({});
+  const [country,setCountry] = useState('');
+
+  async function handleCountryChange(country){
+    let data = await GetData(country);
+    setData(data);
+    setCountry(country);
+    console.log(data);
+  }
+
   useEffect(() => {
     async function getData(){
       let data = await GetData();
@@ -22,7 +31,7 @@ function App() {
   return (
     <div >
       <Card data={data}/>
-      {/* <ListCountires /> */}
+      <ListCountires handleCountryChange={handleCountryChange}/>
       <Graph />
       
     </div>

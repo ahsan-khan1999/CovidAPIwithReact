@@ -39,7 +39,7 @@ export default function Graph() {
         ) : null
     );
 
-    console.log(dailyData)
+    
     return (
         <div style={{width:'60%' ,marginLeft:'19%'}}>
             {

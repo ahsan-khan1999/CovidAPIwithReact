@@ -1,10 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react'
 
-export const GetData =async () => {
+export const GetData =async (country) => {
 
+    let data=''
+    if(!country){
     const res = await fetch('https://covid19.mathdro.id/api');
-    let data = await res.json()
+    data = await res.json()
+}
+    else{
+        const res = await fetch(`https://covid19.mathdro.id/api/countries/${country}`);
+        data = await res.json()
+    }
 
     const modifiedData ={
         confirmed:data.confirmed,
@@ -20,4 +27,12 @@ export const getDailyData = async () => {
     const res = await fetch('https://covid19.mathdro.id/api/daily')
     let data = await res.json();
     return data
+}
+export const getCountries = async () => {
+    const res = await fetch('https://covid19.mathdro.id/api/countries');
+    let {countries} = await res.json();
+
+    
+    return countries.map((country) => country.name);
+    
 }
