@@ -32,7 +32,7 @@ function App() {
     <div >
       <Card data={data}/>
       <ListCountires handleCountryChange={handleCountryChange}/>
-      <Graph />
+      <Graph data={data} country={country}/>
       
     </div>
   );

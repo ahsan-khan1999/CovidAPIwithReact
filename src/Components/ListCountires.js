@@ -22,7 +22,7 @@ export default function ListCountires({handleCountryChange}) {
                         <NativeSelect defaultValue='' onChange={(e) => handleCountryChange(e.target.value)}>
                             <option value='Global' 
 
-                            >Country Picker</option>
+                            >Global</option>
                             {
                                 Object.values(countires).map((d,index) => {
                                     return <option key={index} value={d}>{d}</option>

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 export const GetData =async (country) => {
 
     let data=''
-    if(!country){
+    if(!country || country === 'Global'){
     const res = await fetch('https://covid19.mathdro.id/api');
     data = await res.json()
 }
